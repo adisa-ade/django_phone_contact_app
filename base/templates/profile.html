@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{%static 'style-profile.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Contact Page</title>
+    <script src="https://kit.fontawesome.com/8ddcb566f9.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <a href="{% url 'home' %}">
+                &#8592; Back
+            </a>
+            <div class="hero-info">
+                <h1 class="name">{{contact.full_name}}</h1>
+                <p class="relationship">{{contact.relationship}}</p>
+            </div>
+        </header>
+            <section class="contact-info">
+
+                <div class="info-line">
+                    <i class="fa-solid fa-phone icon-gradient"></i>
+                    <p class="phone-number">{{contact.phone_number}}</p>
+                </div>
+
+                <div class="info-line">
+                    <i class="fas fa-envelope icon-gradient"></i>
+                    <p class="email">{{contact.email}}</p>
+                </div>
+
+                <div class="info-line">
+                    <i id="location" class="fas fa-map-marker-alt icon-gradient"></i>
+                    <p class="address">{{contact.address}}</p>
+                </div>
+            </section>
+            <a href="{% url 'update-contact' contact.id %}">
+                <section class="edit-contact">
+
+        <div class="edit-buton">
+
+                        <button class="button">
+                            Edit Contact
+                        </button>
+                    </div>
+                </section>
+            </a>
+
+        <a href="{% url 'delete-contact' contact.id %}">
+                <section class="edit-contact">
+
+                    <div class="edit-buton">
+                        <button class="button">
+                            Delete Contact
+                        </button>
+                    </div>
+                </section>
+        </a>
+    </div>
+</body>
+</html>

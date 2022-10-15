@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'style-delete.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <title>Delete Contact</title>
+        <script src="https://kit.fontawesome.com/8ddcb566f9.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <div class="container">
+        <header class="hero">
+
+            </a>
+            <div class="hero-info">
+                <h1 class="name">{{contact.full_name}}</h1>
+                <p class="relationship">{{contact.relationship}}</p>
+            </div>
+        </header>
+        <form action=""  method="POST">
+            {% csrf_token % %}
+        <section class="button-container">
+            <p>Are you sure you want to delete this contact?</p>
+                <div class="delete-contact">
+
+                <button class="button">Delete Contact</button>
+
+                </div>
+        </section>
+        </a>
+            </form>
+         <a href="{% url 'contact-detail' contact.id %}">
+                <section class="button-container">
+
+                    <div class="delete-contact">
+                        <button id="cancel" class="button">
+                            Cancel
+                        </button>
+                    </div>
+                </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Contact App</title>
+    <script src="https://kit.fontawesome.com/8ddcb566f9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="container">
+    <header class="header">
+        {%if user.is_authenticated%}
+        <a href="{% url 'logout' %}">Logout</a>
+        {%endif%}
+        <form class="search-bar" action="">
+           <input type="search-name" class="contact-search" name="search-area" value="{{ search_input }}" placeholder="Search Contact">
+        </form>
+        <a href="{% url 'create-contact' %}"><i class="fa-solid fa-plus"></i> Add Contact</a>
+
+      </header>
+    <section class="contacts-library">
+        <ul class="contacts-list">
+         {% for contact in contacts %}
+            <a href="{% url 'contact-detail' contact.id %}">
+            <div class="contact-section">
+                 <li class="list__item">
+                    <p class="contact-name">{{contact.full_name}}</p>
+                    <p class="relationship">{{contact.relationship}}</p>
+                 </li>
+                 <li class="list__item">
+                    <i class="fa-solid fa-phone"></i>
+                    <i class="fa-solid fa-comment-sms text"></i>
+                 </li>
+            </div>
+         </a>
+            <hr>
+             {% empty %}
+        <h3 style="padding:20px;">No Contact found...</h3>
+            {% endfor %}
+       </ul>
+    </section>
+    </div>
+
+</body>
+</html>
+{% endblock %}

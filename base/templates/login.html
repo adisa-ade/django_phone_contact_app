@@ -1,0 +1,54 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'style-edit.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        <title>Edit Contact</title>
+        <script src="https://kit.fontawesome.com/8ddcb566f9.js" crossorigin="anonymous"></script>
+    </head>
+<body>
+    <div class="container">
+        <header class="hero">
+            <div class="hero-info">
+                <h1 class="name">Login</h1>
+            </div>
+        </header>
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <section class="contact-info">
+                <div class="info-line">
+                    <i class="fa-solid fa-phone icon-gradient"></i>
+                    <input type="text" class="type" name="username"  placeholder="Username" required>
+                </div>
+                <div class="info-line">
+                    <i id="location" class="fas fa-map-marker-alt icon-gradient"></i>
+                    <input type="password" class="type" name="password"  placeholder="Password" required>
+                </div>
+                </section>
+            <section class="button-container">
+                    <div class="update-contact">
+                        </i><button type="submit" class="button" >Login</button>
+                    </div>
+            </section>
+            </form>
+            <a href="{% url 'register' %}">
+            <section class="button-container">
+                    <div class="update-contact">
+                        <p>Don't have an Account?</p>
+                        </i><button type="submit" class="button" >Register</button>
+                    </div>
+            </section>
+                </a>
+
+</div>
+</body>
+</html>
+{% endblock content%}
